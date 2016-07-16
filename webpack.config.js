@@ -1,11 +1,15 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: { app: "./src/index.tsx" },
     output: {
         path: './dist',
         filename: "./[name].bundle.js",
-        publishpath: "/"
+        publishpath: "/",
+        sourceMapFilename: '[name].map',
+        chunkFilename: '[id].chunk.js'
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -19,7 +23,23 @@ module.exports = {
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loader: "ts-loader" }
+            { test: /\.tsx?$/, loader: "ts-loader" },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file?name=assets/[name].[hash].[ext]'
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            },
+            {
+                test: /\.scss$/,
+                loader: "style!css!sass"
+            },
+            {
+                test: /\.less$/,
+                loader: "style!css!less"
+            },
         ],
 
         preLoaders: [
@@ -34,10 +54,18 @@ module.exports = {
             sourceType: 'var'
         }),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            // filename: 'index.html',
             template: 'index.html',
             inject: true
-        })
+        }),
+        //复制静态资源文件
+        new CopyWebpackPlugin([{
+            from: 'src/assets',
+            to: 'assets'
+        }]),
+        new webpack.optimize.CommonsChunkPlugin({ name: "commons", filename: "common.js" }),
+        new ExtractTextPlugin("appstyle.css", { allchunks: true }) //[name]
+
     ]
 
     // When importing a module whose path matches one of the following, just

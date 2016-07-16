@@ -14,6 +14,8 @@ import ViewStore from './stores/ViewStore';
 // var Router = require('react-router').Router;
 // 	var Route = require('react-router').Route;
 // 	var Link = require('react-router').Link;
+require('./css/base.css');
+require('./css/app.css');
 
 @observer
 export default class TodoApp extends React.Component<{ todoStore: TodoStore, viewStore: ViewStore }, {}> {
@@ -61,7 +63,6 @@ export default class TodoApp extends React.Component<{ todoStore: TodoStore, vie
 		// router.init('/');
 
 		// not using an ES6 transpiler
-
 	}
 
 }

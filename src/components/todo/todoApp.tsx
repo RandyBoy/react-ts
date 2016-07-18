@@ -16,6 +16,7 @@ import ViewStore from './stores/ViewStore';
 // 	var Link = require('react-router').Link;
 require('./css/base.css');
 require('./css/app.css');
+require('antd/dist/antd.min.css');
 
 @observer
 export default class TodoApp extends React.Component<{ todoStore: TodoStore, viewStore: ViewStore }, {}> {

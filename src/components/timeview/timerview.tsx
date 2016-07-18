@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import {observable} from 'mobx';
 import {observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
-
+import {Button} from 'antd';
 
 class AppState {
 
@@ -25,9 +25,9 @@ class TimerView extends React.Component<{ appState: AppState }, {}> {
     render() {
         return (
             <div>
-                <button onClick={this.onReset}>
+                <Button onClick={this.onReset} type="primary">
                     Seconds passed: {this.props.appState.timer}
-                </button>
+                </Button>
                 <DevTools />
             </div>
         );
@@ -41,6 +41,7 @@ class TimerView extends React.Component<{ appState: AppState }, {}> {
         const appState = new AppState();
         ReactDOM.render(<TimerView appState={appState} />, document.getElementById('root'));
         showMsg('异步模块加载完成B');
+        this.forceUpdate();
         // });
     }
 };

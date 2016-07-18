@@ -9,7 +9,7 @@ module.exports = {
         path: './dist',
         filename: "[name].bundle.js",
         publishpath: "/",
-        sourceMapFilename: '[name].map',
+        sourceMapFilename: '/chunks/[name]/[name].map',
         chunkFilename: '/chunks/[name]/[name].chunk.js'
     },
 
@@ -77,7 +77,7 @@ module.exports = {
             to: 'assets'
         }]),
         new webpack.optimize.CommonsChunkPlugin({ name: "commons", filename: "common.js" }),
-        new ExtractTextPlugin('appstyle.css', { allchunks: true }) //[name]
+        new ExtractTextPlugin('[name].css', { allchunks: true }) //[name]
     ]
 
     // When importing a module whose path matches one of the following, just

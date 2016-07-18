@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Button} from 'antd';
 
 export interface SaleProps { list: number[], compiler: string; framework: string; }
 
@@ -9,7 +10,7 @@ export class SaleComponent extends React.Component<{ saleStore: SaleProps }, {}>
     }
     render() {
         return <div>
-            <button onClick={this.onAdd}> 新增行</button>
+            <Button onClick={this.onAdd} type="primary">插入组件</Button>
             {this.props.saleStore.list.map(todo =>
                 <h1 key = {todo}>Sale from {this.props.saleStore.compiler} and {this.props.saleStore.framework}!</h1>
             ) }

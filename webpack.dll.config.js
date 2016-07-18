@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var assetsPluginInstance = require('./assetsPlugin')
 
 var deps = require('./package.json').dependencies;
-//delete deps['antd'];
+delete deps['mobx-react-devtools'];
 
 console.log(Object.keys(deps));
 

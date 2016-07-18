@@ -5,26 +5,6 @@ import { Hello } from "./components/Hello";
 import AppRouter from  './app.routers';
 //  import {TimerView, AppState} from './components/timeview/timerview';
 
-// declare module abc {
-//    declare class require {
-//        ensure()
-//    }
-// }
-// interface NodeRequirejs {
-//     (modules: string[] | string, callback?: Function): any;
-// }
-
-// interface Requirejs extends NodeRequirejs {
-//     resolve(id: string): string;
-//     cache: any;
-//     extensions: any;
-//     main: any;
-//     ensure(modules: string[], callback?: Function)
-// }
-
-// declare var require: Requirejs;
-
-
 //declare var require;
 // import TimerView = require('./components/timeview/timerview');
 // var tv: typeof TimerView = require('./components/timeview/timerview');
@@ -44,7 +24,7 @@ setTimeout(() => {
         let sale = require('./components/sale');
         let saleState = { list: [1, 2], compiler: "TypeScript", framework: "React" };
         ReactDOM.render(
-            <sale.SaleComponent saleStore = {saleState}  />,
+            <sale.SaleComponent saleStore = {saleState} />,
             document.getElementById("example")
         );
         console.log('销售模块异步加载成功.');

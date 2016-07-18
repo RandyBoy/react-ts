@@ -1,0 +1,1 @@
+export {SaleComponent} from './Sale.tsx';

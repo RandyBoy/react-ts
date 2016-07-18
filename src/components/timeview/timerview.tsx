@@ -4,7 +4,8 @@ import {observable} from 'mobx';
 import {observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 
-export class AppState {
+
+class AppState {
 
     @observable timer = 0;
 
@@ -20,7 +21,7 @@ export class AppState {
 }
 
 @observer
-export class TimerView extends React.Component<{ appState: AppState }, {}> {
+class TimerView extends React.Component<{ appState: AppState }, {}> {
     render() {
         return (
             <div>
@@ -34,6 +35,18 @@ export class TimerView extends React.Component<{ appState: AppState }, {}> {
 
     onReset = () => {
         this.props.appState.resetTimer();
+        // require.ensure(['test', './'], (req) => {
+        let showMsg = require('test');
+        // let tv = require('./');
+        const appState = new AppState();
+        ReactDOM.render(<TimerView appState={appState} />, document.getElementById('root'));
+        showMsg('异步模块加载完成B');
+        // });
     }
 };
 
+export {TimerView, AppState};
+
+exports.TimerView = TimerView;
+// exports.AppState = AppState;
+module.exports = { TimerView, AppState };

@@ -2,11 +2,12 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
 module.exports = {
     entry: { app: "./src/index.tsx" },
     output: {
         path: './dist',
-        filename: "./[name].bundle.js",
+        filename: "[name].bundle.js",
         publishpath: "/",
         sourceMapFilename: '[name].map',
         chunkFilename: '[id].chunk.js'
@@ -17,16 +18,28 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+        alias: {
+            test: path.join(__dirname, 'test.js'),
+        }
     },
 
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loader: "ts-loader" },
+            // {
+            //     test: /\.js|\.jsx$/,
+            //     loaders: ['babel?cacheDirectory=true'], //babel-loader babel-core
+            //     exclude: /node_modules/
+            // },
+            { test: /\.ts|\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file?name=assets/[name].[hash].[ext]'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             },
             {
                 test: /\.css$/,
@@ -64,8 +77,7 @@ module.exports = {
             to: 'assets'
         }]),
         new webpack.optimize.CommonsChunkPlugin({ name: "commons", filename: "common.js" }),
-        new ExtractTextPlugin("appstyle.css", { allchunks: true }) //[name]
-
+        new ExtractTextPlugin('appstyle.css', { allchunks: true }) //[name]
     ]
 
     // When importing a module whose path matches one of the following, just

@@ -1,4 +1,4 @@
-webpackJsonp([0,1],[
+webpackJsonp([0,4],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -7,10 +7,54 @@ webpackJsonp([0,1],[
 	var ReactDOM = __webpack_require__(3);
 	var Hello_1 = __webpack_require__(4);
 	var app_routers_1 = __webpack_require__(5);
-	var timerview_1 = __webpack_require__(28);
+	//  import {TimerView, AppState} from './components/timeview/timerview';
+	// declare module abc {
+	//    declare class require {
+	//        ensure()
+	//    }
+	// }
+	// interface NodeRequirejs {
+	//     (modules: string[] | string, callback?: Function): any;
+	// }
+	// interface Requirejs extends NodeRequirejs {
+	//     resolve(id: string): string;
+	//     cache: any;
+	//     extensions: any;
+	//     main: any;
+	//     ensure(modules: string[], callback?: Function)
+	// }
+	// declare var require: Requirejs;
+	//declare var require;
+	// import TimerView = require('./components/timeview/timerview');
+	// var tv: typeof TimerView = require('./components/timeview/timerview');
 	ReactDOM.render(React.createElement(Hello_1.Hello, {compiler: "TypeScript", framework: "React"}), document.getElementById("example"));
-	var appState = new timerview_1.AppState();
-	ReactDOM.render(React.createElement(timerview_1.TimerView, {appState: appState}), document.getElementById('root'));
+	setTimeout(function () {
+	    __webpack_require__.e/* nsure */(1, function (req) { console.log('异步模板加载成功1.'); });
+	    //  require.ensure(['./components/pur'], (req) => { console.log('采购模块异步加载成功.'); });
+	    __webpack_require__.e/* nsure */(2, function (req) {
+	        var sale = __webpack_require__(31); //list={saleState.list} compiler={saleState.compiler} framework={saleState.framework}
+	        var saleState = { list: [1, 2], compiler: "TypeScript", framework: "React" };
+	        ReactDOM.render(React.createElement(sale.SaleComponent, {saleStore: saleState}), document.getElementById("example"));
+	        console.log('销售模块异步加载成功.');
+	    });
+	    __webpack_require__.e/* require */(3, function() {[__webpack_require__(33)];});
+	    //  require(['./components/sale']);
+	}, 3000);
+	setTimeout(function () {
+	    //异步模块加载方式一
+	    // import TimerView = require('./components/timeview');
+	    // require(['./components/timeview'], (tv : typeof TimerView) => {
+	    //     const appState = new tv.AppState();
+	    //     ReactDOM.render(<tv.TimerView appState={appState} />, document.getElementById('root'));
+	    // });
+	    __webpack_require__.e/* nsure */(1/* duplicate */, function (req) {
+	        var showMsg = __webpack_require__(28);
+	        var tv = __webpack_require__(29);
+	        var appState = new tv.AppState();
+	        ReactDOM.render(React.createElement(tv.TimerView, {appState: appState}), document.getElementById('root'));
+	        showMsg('异步模块加载完成B');
+	    });
+	}, 10000);
 	ReactDOM.render(React.createElement(app_routers_1.default, null), document.getElementById('todoapp'));
 
 
@@ -18,19 +62,19 @@ webpackJsonp([0,1],[
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(8);
+	module.exports = (__webpack_require__(2))(7);
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	module.exports = vendor_dll_1063df23b538e0c27420;
+	module.exports = vendor_dll_bcf5c1fa82eb0166b33b;
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(102);
+	module.exports = (__webpack_require__(2))(92);
 
 /***/ },
 /* 4 */
@@ -75,7 +119,7 @@ webpackJsonp([0,1],[
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(205);
+	module.exports = (__webpack_require__(2))(189);
 
 /***/ },
 /* 7 */
@@ -156,7 +200,7 @@ webpackJsonp([0,1],[
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(100);
+	module.exports = (__webpack_require__(2))(91);
 
 /***/ },
 /* 9 */
@@ -466,7 +510,7 @@ webpackJsonp([0,1],[
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(188);
+	module.exports = (__webpack_require__(2))(171);
 
 /***/ },
 /* 16 */
@@ -559,7 +603,7 @@ webpackJsonp([0,1],[
 /* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(58);
+	module.exports = (__webpack_require__(2))(54);
 
 /***/ },
 /* 18 */
@@ -620,7 +664,7 @@ webpackJsonp([0,1],[
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(140);
+	module.exports = (__webpack_require__(2))(130);
 
 /***/ },
 /* 20 */
@@ -677,70 +721,7 @@ webpackJsonp([0,1],[
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(181);
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var React = __webpack_require__(1);
-	var mobx_1 = __webpack_require__(17);
-	var mobx_react_1 = __webpack_require__(8);
-	var mobx_react_devtools_1 = __webpack_require__(15);
-	var AppState = (function () {
-	    function AppState() {
-	        var _this = this;
-	        this.timer = 0;
-	        setInterval(function () {
-	            _this.timer += 1;
-	        }, 1000);
-	    }
-	    AppState.prototype.resetTimer = function () {
-	        this.timer = 0;
-	    };
-	    __decorate([
-	        mobx_1.observable, 
-	        __metadata('design:type', Object)
-	    ], AppState.prototype, "timer", void 0);
-	    return AppState;
-	}());
-	exports.AppState = AppState;
-	var TimerView = (function (_super) {
-	    __extends(TimerView, _super);
-	    function TimerView() {
-	        var _this = this;
-	        _super.apply(this, arguments);
-	        this.onReset = function () {
-	            _this.props.appState.resetTimer();
-	        };
-	    }
-	    TimerView.prototype.render = function () {
-	        return (React.createElement("div", null, React.createElement("button", {onClick: this.onReset}, "Seconds passed: ", this.props.appState.timer), React.createElement(mobx_react_devtools_1.default, null)));
-	    };
-	    TimerView = __decorate([
-	        mobx_react_1.observer, 
-	        __metadata('design:paramtypes', [])
-	    ], TimerView);
-	    return TimerView;
-	}(React.Component));
-	exports.TimerView = TimerView;
-	;
-
+	module.exports = (__webpack_require__(2))(169);
 
 /***/ }
 ]);

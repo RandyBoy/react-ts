@@ -10,7 +10,7 @@ module.exports = {
         filename: "[name].bundle.js",
         publishpath: "/",
         sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
+        chunkFilename: '/chunks/[name]/[name].chunk.js'
     },
 
     // Enable sourcemaps for debugging webpack's output.

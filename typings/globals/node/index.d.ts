@@ -37,7 +37,7 @@ declare function clearImmediate(immediateId: any): void;
 
 interface NodeRequireFunction {
     (id: string): any;
-    (modules: string[] | string, callback?: Function): any;
+    (dependencies: string[] | string, callback?: Function): any;
 }
 
 interface NodeRequire extends NodeRequireFunction {
@@ -45,7 +45,9 @@ interface NodeRequire extends NodeRequireFunction {
     cache: any;
     extensions: any;
     main: any;
-    ensure(modules: string[], callback?: Function)
+    // ensure(dependencies: string[], callback?: Function, chunkName?: string)
+    ensure(dependencies: String[], callback?: Function, chunkName?: string);
+    include(dependency: String);
 }
 
 declare var require: NodeRequire;

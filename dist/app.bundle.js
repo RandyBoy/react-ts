@@ -8,22 +8,6 @@ webpackJsonp([0,4],[
 	var Hello_1 = __webpack_require__(4);
 	var app_routers_1 = __webpack_require__(5);
 	//  import {TimerView, AppState} from './components/timeview/timerview';
-	// declare module abc {
-	//    declare class require {
-	//        ensure()
-	//    }
-	// }
-	// interface NodeRequirejs {
-	//     (modules: string[] | string, callback?: Function): any;
-	// }
-	// interface Requirejs extends NodeRequirejs {
-	//     resolve(id: string): string;
-	//     cache: any;
-	//     extensions: any;
-	//     main: any;
-	//     ensure(modules: string[], callback?: Function)
-	// }
-	// declare var require: Requirejs;
 	//declare var require;
 	// import TimerView = require('./components/timeview/timerview');
 	// var tv: typeof TimerView = require('./components/timeview/timerview');
@@ -31,13 +15,16 @@ webpackJsonp([0,4],[
 	setTimeout(function () {
 	    __webpack_require__.e/* nsure */(1, function (req) { console.log('异步模板加载成功1.'); });
 	    //  require.ensure(['./components/pur'], (req) => { console.log('采购模块异步加载成功.'); });
+	    //list={saleState.list} compiler={saleState.compiler} framework={saleState.framework}
+	    // require.include("./components/sale");
 	    __webpack_require__.e/* nsure */(2, function (req) {
-	        var sale = __webpack_require__(31); //list={saleState.list} compiler={saleState.compiler} framework={saleState.framework}
+	        var sale = __webpack_require__(31);
 	        var saleState = { list: [1, 2], compiler: "TypeScript", framework: "React" };
 	        ReactDOM.render(React.createElement(sale.SaleComponent, {saleStore: saleState}), document.getElementById("example"));
 	        console.log('销售模块异步加载成功.');
 	    });
-	    __webpack_require__.e/* require */(3, function() {[__webpack_require__(33)];});
+	    // require.include("./components/pur");
+	    __webpack_require__.e/* nsure */(3, function (req) { });
 	    //  require(['./components/sale']);
 	}, 3000);
 	setTimeout(function () {
@@ -47,7 +34,7 @@ webpackJsonp([0,4],[
 	    //     const appState = new tv.AppState();
 	    //     ReactDOM.render(<tv.TimerView appState={appState} />, document.getElementById('root'));
 	    // });
-	    __webpack_require__.e/* nsure */(1/* duplicate */, function (req) {
+	    __webpack_require__.e/* nsure */(1, function (req) {
 	        var showMsg = __webpack_require__(28);
 	        var tv = __webpack_require__(29);
 	        var appState = new tv.AppState();

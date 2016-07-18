@@ -17,9 +17,10 @@ ReactDOM.render(
 );
 
 setTimeout(() => {
-    require.ensure(['test', './components/timeview'], (req) => { console.log('异步模板加载成功1.'); });
+    require.ensure(['test', './components/timeview'], (req) => { console.log('异步模板加载成功1.'); }, "timeview");
     //  require.ensure(['./components/pur'], (req) => { console.log('采购模块异步加载成功.'); });
     //list={saleState.list} compiler={saleState.compiler} framework={saleState.framework}
+   // require.include("./components/sale");
     require.ensure(['./components/sale'], (req) => {
         let sale = require('./components/sale');
         let saleState = { list: [1, 2], compiler: "TypeScript", framework: "React" };
@@ -28,8 +29,10 @@ setTimeout(() => {
             document.getElementById("example")
         );
         console.log('销售模块异步加载成功.');
-    });
-    require(['./components/pur']);
+    }, 'sale');
+
+   // require.include("./components/pur");
+    require.ensure(['./components/pur'], (req) => { }, 'pur');
     //  require(['./components/sale']);
 }, 3000);
 
@@ -47,7 +50,7 @@ setTimeout(() => {
         const appState = new tv.AppState();
         ReactDOM.render(<tv.TimerView appState={appState} />, document.getElementById('root'));
         showMsg('异步模块加载完成B');
-    });
+    }, "timeview");
 }, 10000);
 
 ReactDOM.render(<AppRouter/>, document.getElementById('todoapp'));

@@ -1,7 +1,7 @@
 import {observable, computed, autorun} from 'mobx';
 import TodoModel from '../models/TodoModel'
 import * as Utils from '../utils';
-
+import axios = require('axios');
 
 export default class TodoStore {
 
@@ -20,18 +20,20 @@ export default class TodoStore {
   }
 
   subscribeServerToStore(model?: any) {
-    // autorun(() => {
-    //   const todos = this.toJS();
-    //   if (this.subscribedServerToModel !== true) {
-    //     this.subscribedServerToModel = true;
-    //     return;
-    //   }
-    //   fetch('/api/todos', {
-    //     method: 'post',
-    //     body: JSON.stringify({ todos }),
-    //     headers: new Headers({ 'Content-Type': 'application/json' })
-    //   })
-    // });
+    autorun(() => {
+      const todos = this.toJS();
+      if (this.subscribedServerToModel !== true) {
+        this.subscribedServerToModel = true;
+        return;
+      }
+      axios.post('/api/todos', JSON.stringify({ todos }), { headers: { 'Content-Type': 'application/json' } });
+
+      // fetch('/api/todos', {
+      //   method: 'post',
+      //   body: JSON.stringify({ todos }),
+      //   headers: new Headers({ 'Content-Type': 'application/json' })
+      // })
+    });
   }
 
   addTodo(title) {

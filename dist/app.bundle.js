@@ -1,46 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
+webpackJsonp([0,1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -49,7 +7,7 @@
 	var ReactDOM = __webpack_require__(3);
 	var Hello_1 = __webpack_require__(4);
 	var app_routers_1 = __webpack_require__(5);
-	var timerview_1 = __webpack_require__(36);
+	var timerview_1 = __webpack_require__(28);
 	ReactDOM.render(React.createElement(Hello_1.Hello, {compiler: "TypeScript", framework: "React"}), document.getElementById("example"));
 	var appState = new timerview_1.AppState();
 	ReactDOM.render(React.createElement(timerview_1.TimerView, {appState: appState}), document.getElementById('root'));
@@ -60,19 +18,19 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(7);
+	module.exports = (__webpack_require__(2))(8);
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	module.exports = vendor_dll_b58c50015ae0dc759b6a;
+	module.exports = vendor_dll_1063df23b538e0c27420;
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(84);
+	module.exports = (__webpack_require__(2))(102);
 
 /***/ },
 /* 4 */
@@ -106,7 +64,7 @@
 	var React = __webpack_require__(1);
 	var react_router_1 = __webpack_require__(6);
 	var todoApp_1 = __webpack_require__(7);
-	var history_1 = __webpack_require__(20);
+	var history_1 = __webpack_require__(27);
 	var browserHistory = react_router_1.useRouterHistory(history_1.createHistory)({ basename: '/' });
 	var RouterComp = function () { return (React.createElement(react_router_1.Router, {history: browserHistory}, React.createElement(react_router_1.Route, {path: "/", component: todoApp_1.default}, React.createElement(react_router_1.IndexRoute, {component: todoApp_1.default}), React.createElement(react_router_1.Route, {path: "*", component: function () { return React.createElement("div", null, "404 not found"); }})))); };
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -117,7 +75,7 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(163);
+	module.exports = (__webpack_require__(2))(205);
 
 /***/ },
 /* 7 */
@@ -145,10 +103,12 @@
 	var todoFooter_1 = __webpack_require__(13);
 	var mobx_react_devtools_1 = __webpack_require__(15);
 	var TodoStore_1 = __webpack_require__(16);
-	var ViewStore_1 = __webpack_require__(19);
+	var ViewStore_1 = __webpack_require__(20);
 	// var Router = require('react-router').Router;
 	// 	var Route = require('react-router').Route;
 	// 	var Link = require('react-router').Link;
+	__webpack_require__(21);
+	__webpack_require__(25);
 	var TodoApp = (function (_super) {
 	    __extends(TodoApp, _super);
 	    function TodoApp() {
@@ -196,7 +156,7 @@
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(83);
+	module.exports = (__webpack_require__(2))(100);
 
 /***/ },
 /* 9 */
@@ -506,7 +466,7 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(145);
+	module.exports = (__webpack_require__(2))(188);
 
 /***/ },
 /* 16 */
@@ -525,6 +485,7 @@
 	var mobx_1 = __webpack_require__(17);
 	var TodoModel_1 = __webpack_require__(18);
 	var Utils = __webpack_require__(14);
+	var axios = __webpack_require__(19);
 	var TodoStore = (function () {
 	    function TodoStore() {
 	        this.todos = [];
@@ -544,18 +505,20 @@
 	        configurable: true
 	    });
 	    TodoStore.prototype.subscribeServerToStore = function (model) {
-	        // autorun(() => {
-	        //   const todos = this.toJS();
-	        //   if (this.subscribedServerToModel !== true) {
-	        //     this.subscribedServerToModel = true;
-	        //     return;
-	        //   }
-	        //   fetch('/api/todos', {
-	        //     method: 'post',
-	        //     body: JSON.stringify({ todos }),
-	        //     headers: new Headers({ 'Content-Type': 'application/json' })
-	        //   })
-	        // });
+	        var _this = this;
+	        mobx_1.autorun(function () {
+	            var todos = _this.toJS();
+	            if (_this.subscribedServerToModel !== true) {
+	                _this.subscribedServerToModel = true;
+	                return;
+	            }
+	            axios.post('/api/todos', JSON.stringify({ todos: todos }), { headers: { 'Content-Type': 'application/json' } });
+	            // fetch('/api/todos', {
+	            //   method: 'post',
+	            //   body: JSON.stringify({ todos }),
+	            //   headers: new Headers({ 'Content-Type': 'application/json' })
+	            // })
+	        });
 	    };
 	    TodoStore.prototype.addTodo = function (title) {
 	        this.todos.push(new TodoModel_1.default(this, Utils.uuid(), title, false));
@@ -596,7 +559,7 @@
 /* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = (__webpack_require__(2))(51);
+	module.exports = (__webpack_require__(2))(58);
 
 /***/ },
 /* 18 */
@@ -657,6 +620,12 @@
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = (__webpack_require__(2))(140);
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -689,314 +658,29 @@
 
 
 /***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _deprecate = __webpack_require__(21);
-	
-	var _deprecate2 = _interopRequireDefault(_deprecate);
-	
-	var _createLocation2 = __webpack_require__(22);
-	
-	var _createLocation3 = _interopRequireDefault(_createLocation2);
-	
-	var _createBrowserHistory = __webpack_require__(23);
-	
-	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
-	
-	exports.createHistory = _createBrowserHistory2['default'];
-	
-	var _createHashHistory2 = __webpack_require__(24);
-	
-	var _createHashHistory3 = _interopRequireDefault(_createHashHistory2);
-	
-	exports.createHashHistory = _createHashHistory3['default'];
-	
-	var _createMemoryHistory2 = __webpack_require__(25);
-	
-	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
-	
-	exports.createMemoryHistory = _createMemoryHistory3['default'];
-	
-	var _useBasename2 = __webpack_require__(26);
-	
-	var _useBasename3 = _interopRequireDefault(_useBasename2);
-	
-	exports.useBasename = _useBasename3['default'];
-	
-	var _useBeforeUnload2 = __webpack_require__(27);
-	
-	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
-	
-	exports.useBeforeUnload = _useBeforeUnload3['default'];
-	
-	var _useQueries2 = __webpack_require__(32);
-	
-	var _useQueries3 = _interopRequireDefault(_useQueries2);
-	
-	exports.useQueries = _useQueries3['default'];
-	
-	var _Actions2 = __webpack_require__(33);
-	
-	var _Actions3 = _interopRequireDefault(_Actions2);
-	
-	exports.Actions = _Actions3['default'];
-	
-	// deprecated
-	
-	var _enableBeforeUnload2 = __webpack_require__(34);
-	
-	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
-	
-	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
-	
-	var _enableQueries2 = __webpack_require__(35);
-	
-	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
-	
-	exports.enableQueries = _enableQueries3['default'];
-	var createLocation = _deprecate2['default'](_createLocation3['default'], 'Using createLocation without a history instance is deprecated; please use history.createLocation instead');
-	exports.createLocation = createLocation;
-
-/***/ },
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = (__webpack_require__(2))(49);
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(142);
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(141);
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(80);
-
-/***/ },
+/* 22 */,
+/* 23 */,
+/* 24 */,
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = (__webpack_require__(2))(143);
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(82);
+	// removed by extract-text-webpack-plugin
 
 /***/ },
+/* 26 */,
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	exports.__esModule = true;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _warning = __webpack_require__(29);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	var _ExecutionEnvironment = __webpack_require__(30);
-	
-	var _DOMUtils = __webpack_require__(31);
-	
-	var _deprecate = __webpack_require__(21);
-	
-	var _deprecate2 = _interopRequireDefault(_deprecate);
-	
-	function startBeforeUnloadListener(getBeforeUnloadPromptMessage) {
-	  function listener(event) {
-	    var message = getBeforeUnloadPromptMessage();
-	
-	    if (typeof message === 'string') {
-	      (event || window.event).returnValue = message;
-	      return message;
-	    }
-	  }
-	
-	  _DOMUtils.addEventListener(window, 'beforeunload', listener);
-	
-	  return function () {
-	    _DOMUtils.removeEventListener(window, 'beforeunload', listener);
-	  };
-	}
-	
-	/**
-	 * Returns a new createHistory function that can be used to create
-	 * history objects that know how to use the beforeunload event in web
-	 * browsers to cancel navigation.
-	 */
-	function useBeforeUnload(createHistory) {
-	  return function (options) {
-	    var history = createHistory(options);
-	
-	    var stopBeforeUnloadListener = undefined;
-	    var beforeUnloadHooks = [];
-	
-	    function getBeforeUnloadPromptMessage() {
-	      var message = undefined;
-	
-	      for (var i = 0, len = beforeUnloadHooks.length; message == null && i < len; ++i) {
-	        message = beforeUnloadHooks[i].call();
-	      }return message;
-	    }
-	
-	    function listenBeforeUnload(hook) {
-	      beforeUnloadHooks.push(hook);
-	
-	      if (beforeUnloadHooks.length === 1) {
-	        if (_ExecutionEnvironment.canUseDOM) {
-	          stopBeforeUnloadListener = startBeforeUnloadListener(getBeforeUnloadPromptMessage);
-	        } else {
-	          process.env.NODE_ENV !== 'production' ? _warning2['default'](false, 'listenBeforeUnload only works in DOM environments') : undefined;
-	        }
-	      }
-	
-	      return function () {
-	        beforeUnloadHooks = beforeUnloadHooks.filter(function (item) {
-	          return item !== hook;
-	        });
-	
-	        if (beforeUnloadHooks.length === 0 && stopBeforeUnloadListener) {
-	          stopBeforeUnloadListener();
-	          stopBeforeUnloadListener = null;
-	        }
-	      };
-	    }
-	
-	    // deprecated
-	    function registerBeforeUnloadHook(hook) {
-	      if (_ExecutionEnvironment.canUseDOM && beforeUnloadHooks.indexOf(hook) === -1) {
-	        beforeUnloadHooks.push(hook);
-	
-	        if (beforeUnloadHooks.length === 1) stopBeforeUnloadListener = startBeforeUnloadListener(getBeforeUnloadPromptMessage);
-	      }
-	    }
-	
-	    // deprecated
-	    function unregisterBeforeUnloadHook(hook) {
-	      if (beforeUnloadHooks.length > 0) {
-	        beforeUnloadHooks = beforeUnloadHooks.filter(function (item) {
-	          return item !== hook;
-	        });
-	
-	        if (beforeUnloadHooks.length === 0) stopBeforeUnloadListener();
-	      }
-	    }
-	
-	    return _extends({}, history, {
-	      listenBeforeUnload: listenBeforeUnload,
-	
-	      registerBeforeUnloadHook: _deprecate2['default'](registerBeforeUnloadHook, 'registerBeforeUnloadHook is deprecated; use listenBeforeUnload instead'),
-	      unregisterBeforeUnloadHook: _deprecate2['default'](unregisterBeforeUnloadHook, 'unregisterBeforeUnloadHook is deprecated; use the callback returned from listenBeforeUnload instead')
-	    });
-	  };
-	}
-	
-	exports['default'] = useBeforeUnload;
-	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
+	module.exports = (__webpack_require__(2))(181);
 
 /***/ },
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(1);
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(14);
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(37);
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(48);
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(38);
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = (__webpack_require__(2))(26);
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _deprecate = __webpack_require__(21);
-	
-	var _deprecate2 = _interopRequireDefault(_deprecate);
-	
-	var _useBeforeUnload = __webpack_require__(27);
-	
-	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
-	
-	exports['default'] = _deprecate2['default'](_useBeforeUnload2['default'], 'enableBeforeUnload is deprecated, use useBeforeUnload instead');
-	module.exports = exports['default'];
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _deprecate = __webpack_require__(21);
-	
-	var _deprecate2 = _interopRequireDefault(_deprecate);
-	
-	var _useQueries = __webpack_require__(32);
-	
-	var _useQueries2 = _interopRequireDefault(_useQueries);
-	
-	exports['default'] = _deprecate2['default'](_useQueries2['default'], 'enableQueries is deprecated, use useQueries instead');
-	module.exports = exports['default'];
-
-/***/ },
-/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1059,5 +743,5 @@
 
 
 /***/ }
-/******/ ]);
-//# sourceMappingURL=app.bundle.js.map
+]);
+//# sourceMappingURL=app.map

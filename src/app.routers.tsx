@@ -5,8 +5,8 @@ import ViewStore from './components/todo/stores/ViewStore';
 import TodoApp from './components/todo/todoApp';
 import {createHistory} from 'history';
 
-
 const browserHistory = useRouterHistory(createHistory)({ basename: '/' });
+
 const RouterComp = () => (
   <Router history={browserHistory}>
     <Route path="/" component={TodoApp}>

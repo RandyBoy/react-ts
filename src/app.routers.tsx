@@ -17,3 +17,11 @@ const RouterComp = () => (
 );
 
 export default RouterComp;
+
+
+// ,
+//     "files": [
+//         "./typings/index.d.tsx",
+//         "./src/components/Hello.tsx",
+//         "./src/index.tsx"
+//     ]

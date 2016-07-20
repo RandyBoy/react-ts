@@ -26,7 +26,7 @@ export default class TodoStore {
         this.subscribedServerToModel = true;
         return;
       }
-      axios.post('/api/todos', JSON.stringify({ todos }), { headers: { 'Content-Type': 'application/json' } });
+     // axios.post('/api/todos', JSON.stringify({ todos }), { headers: { 'Content-Type': 'application/json' } });
 
       // fetch('/api/todos', {
       //   method: 'post',

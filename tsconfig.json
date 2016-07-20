@@ -12,5 +12,18 @@
     },
     "exclude": [
         "node_modules"
+    ],
+    "filesGlob": [
+        "**/*.ts",
+        "**/*.tsx",
+        "!node_modules/**"
+    ],
+    "files": [
+        "./typings/index.d.ts",
+        "./src/components/Hello.tsx",
+        "./src/index.tsx",
+        "./src/components/PhotoGallerys/PhotoGallery.tsx",
+        "./src/components/user-gist/UserGist.tsx",
+        "./src/components/sale/Sale.tsx"
     ]
 }

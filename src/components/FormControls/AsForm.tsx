@@ -7,15 +7,15 @@ export default function asForm(MyComponent, formDataProp) {
     return class Form extends React.Component<{}, {}> {
         constructor(props) {
             super(props)
-            this.updateProperty = this.updateProperty.bind(this)
-            this.updateArray = this.updateArray.bind(this)
+            // this.updateProperty = this.updateProperty.bind(this)
+            // this.updateArray = this.updateArray.bind(this)
         }
 
-        updateProperty(key, value) {
+        updateProperty = (key, value) => {
             this.props[formDataProp][key] = value
         }
 
-        updateArray(key, value) {
+        updateArray = (key, value) => {
             const array = this.props[formDataProp][key]
             const index = array.indexOf(value)
 

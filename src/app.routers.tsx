@@ -25,3 +25,9 @@ export default RouterComp;
 //         "./src/components/Hello.tsx",
 //         "./src/index.tsx"
 //     ]
+
+// "filesGlob": [
+//         "**/*.ts",
+//         "**/*.tsx",
+//         "!node_modules/**"
+//     ],

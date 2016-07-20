@@ -14,7 +14,7 @@
     "server:dev:hmr": "npm run server:dev -- --hot",
     "server:prod": "http-server dist --cors",
     "clean:dist": "npm run rimraf -- dist",
-    "build-dev": "webpack --progress",
+    "build-dev": "webpack --watch --progress",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dll": "NODE_ENV=production webpack --config webpack.dll.config.js --progress",
     "dll-dev": "webpack --config webpack.dll.config.js --progress",
@@ -34,6 +34,7 @@
   "dependencies": {
     "antd": "^1.6.5",
     "axios": "^0.13.0",
+    "core-js": "^2.4.1",
     "history": "^2.1.0",
     "mobx": "^2.3.7",
     "mobx-react": "^3.5.1",

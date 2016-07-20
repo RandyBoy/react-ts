@@ -7,7 +7,7 @@ export default class Photo extends React.Component<any, any> {
         this.state = { liked: false };
     }
 
-    toggleLiked() {
+    toggleLiked = () => {
         this.setState({
             liked: !this.state.liked
         });

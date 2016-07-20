@@ -8,7 +8,7 @@ const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
 
 @observer
-export default class TodoItem extends React.Component<{ todo: TodoModel, viewStore: ViewStore, key: any }, {}> {
+export default class TodoItem extends React.Component<{ todo: TodoModel, viewStore: ViewStore, key: any }, { editText: string }> {
 
 	constructor(props, context) {
 		super(props, context);
@@ -37,7 +37,7 @@ export default class TodoItem extends React.Component<{ todo: TodoModel, viewSto
 				<input
 					ref="editField"
 					className="edit"
-					value={this.state['editText']}
+					value={this.state.editText}
 					onBlur={this.handleSubmit}
 					onChange={this.handleChange}
 					onKeyDown={this.handleKeyDown}
@@ -47,7 +47,7 @@ export default class TodoItem extends React.Component<{ todo: TodoModel, viewSto
 	}
 
 	handleSubmit = (event) => {
-		const val = this.state['editText'].trim();
+		const val = this.state.editText.trim();
 		if (val) {
 			this.props.todo.setTitle(val);
 			this.setState({ editText: val });

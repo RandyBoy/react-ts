@@ -4,14 +4,14 @@ import * as ReactDOM from "react-dom";
 import { Hello } from "./components/Hello";
 import CommentBox from './components/comments/CommentBox';
 import AppRouter from  './app.routers';
+import GroceryList from './components/PhotoGallerys/GroceryList';
+import UserGist from './components/user-gist/UserGist';
 import axios = require('axios');
 //  import {TimerView, AppState} from './components/timeview/timerview';
 
 //declare var require;
 // import TimerView = require('./components/timeview/timerview');
 // var tv: typeof TimerView = require('./components/timeview/timerview');
-
-
 
 ReactDOM.render(
     <Hello compiler="TypeScript" framework="React" />,
@@ -64,6 +64,9 @@ axios.get('/assets/testdata/testdata.json')
             { author: "Jordan Walke", text: "This is *another* comment" }
         ];
         ReactDOM.render(<CommentBox data = {data}/>, document.getElementById('comment'));
+        ReactDOM.render(<GroceryList items={['Apple', 'Banana', 'Cranberry']} />, document.getElementById('grocerylist'));
+        ReactDOM.render(<UserGist source="https://api.github.com/users/octocat/gists"/>, document.getElementById('usergist'));
+
     })
     .catch((err) => { console.error("error") });
 

@@ -14,10 +14,8 @@ export default class CommentBox extends React.Component<CommentBoxProps, Comment
     }
     componentDidMount() {
         axios.get('/assets/testdata/testdata.json')
-            .then(res => {
-                this.setState({ data: res.data });
-            })
-            .catch((err) => { console.error(err) });
+            .then(res => this.setState({ data: res.data }))
+            .catch((err) => console.error(err));
     }
 
     render() {

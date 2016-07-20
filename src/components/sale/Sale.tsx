@@ -21,6 +21,19 @@ export class SaleComponent extends React.Component<{ saleStore: SaleProps }, {}>
             this.props.saleStore.list.push(this.props.saleStore.list.length + 2);
             this.list.push(this.props.saleStore.list.length + 2);
         }
+        // enum Color { Red = 1, Green = 2, Blue = 4 };
+        // let c: Color = Color.Green;
+        enum Color { Red = 2, Green, Blue };
+        let c: Color = Color.Green;
+        let c1: string = Color[2];
+        let c2: number = Color.Green;
+        c === c2 ? console.log('equal') : console.log('not equal');
+        let x: [string, number, string];
+        x = ["hello", 10, 'abc'];
+        x[4] = "add";
+        console.log(x[0]);
+        console.log(x[4]);
+        console.log(x[5]);
         console.log(this.list);
         this.forceUpdate();
     }

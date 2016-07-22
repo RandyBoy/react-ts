@@ -1,4 +1,4 @@
-import asForm from './asForm';
+import asForm from './AsForm';
 import InputCheckbox from './InputCheckbox';
 import InputCheckboxes from './InputCheckboxes';
 import InputField from './InputField';

@@ -8,9 +8,10 @@ export interface CommentBoxProps { data: any }
 export interface CommentBoxState { data: any }
 
 export default class CommentBox extends React.Component<CommentBoxProps, CommentBoxState> {
-    constructor() {
+    constructor(props: CommentBoxProps) {
         super();
         this.state = { data: [] };
+        this.context = { title: 'this is a context' };
     }
     componentDidMount() {
         axios.get('/assets/testdata/testdata.json')

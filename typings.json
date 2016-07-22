@@ -2,6 +2,7 @@
   "globalDependencies": {
     "antd": "registry:dt/antd#0.12.10+20160326114918",
     "axios": "registry:dt/axios#0.9.1+20160629101425",
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
     "node": "registry:dt/node#6.0.0+20160709114037",
     "promise": "registry:dt/promise#7.1.1+20160602154553",
     "react": "registry:dt/react#0.14.0+20160630100702",

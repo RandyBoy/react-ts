@@ -6,7 +6,9 @@ import CommentBox from './components/comments/CommentBox';
 import AppRouter from  './app.routers';
 import GroceryList from './components/PhotoGallerys/GroceryList';
 import UserGist from './components/user-gist/UserGist';
+import ListWB from './components/wblist/list-wb';
 import axios = require('axios');
+import Parent from './components/extend/react-context';
 //  import {TimerView, AppState} from './components/timeview/timerview';
 
 //declare var require;
@@ -71,4 +73,45 @@ axios.get('/assets/testdata/testdata.json')
     .catch((err) => { console.error("error") });
 
 ReactDOM.render(<AppRouter/>, document.getElementById('todoapp'));
+
+let dataList = [
+    {
+        headUrl: 'assets/img/12638218076582.jpg',
+        nickName: 'summer',
+        content: '一些美好的..',
+        NoCollect: 132,
+        NoForward: 202,
+        NoComment: 142,
+        NoPointGreat: 423,
+        contentImgUrls: [
+            "assets/img/12836676803394.jpg",
+            "assets/img/12878226683223.jpg",
+            "assets/img/12881713571501.jpg",
+            "assets/img/12866953609188.jpg",
+            "assets/img/12861946828667.jpg",
+            "assets/img/12848193209875.jpg"
+        ]
+    },
+    {
+        headUrl: 'assets/img/12609793551649.jpg',
+        nickName: 'cyan',
+        content: '分享内容',
+        NoCollect: 1032,
+        NoForward: 2202,
+        NoComment: 1342,
+        NoPointGreat: 1423,
+        contentImgUrls: [
+            "assets/img/12803199708390.jpg",
+            "assets/img/12806693126743.jpg"
+        ]
+    }
+];
+ReactDOM.render(<ListWB data={dataList} />,
+    document.getElementById('place')
+);
+
+let myprops = { bar: "动态传递对象属性BAR到上下文", foo: "动态传递对象属性FOO到上下文", onedata: dataList[0] };
+ReactDOM.render(<Parent {...myprops} />, document.getElementById('context'));  //InversifyJS
+
+
 

@@ -1,0 +1,124 @@
+/**
+* 清除浮动
+*/
+body{
+	background: #d4d4d4;
+	margin: 0;
+	padding: 0;
+	/*background: url(bc.jpg) center center no-repeat;
+	background-size: auto;*/
+}
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.big-center{
+	width: 800px;
+	margin: 10px auto;
+	background: #fff;
+}
+.one-wb{
+	
+}
+.ow-left{
+	width: 100px;
+	float: left;
+	margin: 10px;
+}
+.nick-img{
+	width: 80px;
+	height: 80px;
+}
+.ow-right{
+	float: left;
+	margin: 10px;
+}
+.ow-nick{
+	height: 40px;
+	line-height: 40px;
+}
+.ow-right .row ul{
+	display: block;
+	width: 400px;
+	max-height: 350px;
+	overflow: hidden;
+}
+.ow-right .row ul li{
+	display: inline-block;
+	margin: 10px;
+
+}
+.ow-right textarea{
+	width: 580px;
+	height: 80px;
+	padding: 10px;
+	margin-left: 20px;
+	display: block;
+	resize:none;
+	border-color: #d4d4d4;
+}
+.comment-btn{
+	display: block;
+	float: right;
+	width: 60px;
+	height: 30px;
+	background: #ff7500;
+	box-shadow: 1px 1px 3px #d4d4d4;
+	color:#fff;
+	border:none;
+	margin: 10px 0 ;
+}
+.comment-btn:hover{
+	cursor: pointer;
+	background: #fd8623;
+}
+.one-wb .row img{
+	width: 100px;
+	height: 100px;
+}
+.ow-footer ul {
+	padding-left: 0px;
+	border-top: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	box-sizing: border-box;
+}
+.ow-footer ul li{
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 24.5%;
+	border-right: 1px solid #d4d4d4;
+}
+.ow-footer ul li:last-child{
+	border-right: none;
+}
+.ow-footer ul li:hover{
+	cursor: pointer;
+	color: #d4d4d4;
+}
+.comment-form{
+	width: 750px;
+	margin: 0 auto;
+}
+.comment-form .ow-left{
+	width: 60px;
+	height: 60px;
+}
+.comment-form img{
+	width: 60px;
+	height: 60px;
+}

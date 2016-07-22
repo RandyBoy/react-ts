@@ -20,10 +20,14 @@
     ],
     "files": [
         "./typings/index.d.ts",
-        "./src/components/Hello.tsx",
-        "./src/index.tsx",
+        "./src/main.tsx",
+        "./src/app.routers.tsx",
         "./src/components/PhotoGallerys/PhotoGallery.tsx",
         "./src/components/user-gist/UserGist.tsx",
-        "./src/components/sale/Sale.tsx"
+        "./src/components/sale/Sale.tsx",
+        "./src/components/extend/Enhance.tsx",
+        "./src/components/extend/react-context.tsx",
+         "./src/components/extend/MyRouter.tsx"
+
     ]
 }
